@@ -5,10 +5,14 @@ var Schema = mongoose.Schema;
 var crypto = require('crypto');
 
 var UserSchema = new Schema({
-  name: String,
-  email: { type: String, lowercase: true },
+  name: { type: String, required: true},
+  email: { type: String, lowercase: true, required: true },
   status: String,
   DOB: Date,
+  role: {
+    type: String,
+    required: true
+  },
   hashedPassword: String,
   provider: String,
   salt: String
@@ -32,7 +36,7 @@ UserSchema
       'name': this.name,
       'email': this.email,
       'status': this.status,
-      'DOB': this.DOB
+      'DOB': this.DOB,
     };
   });
 

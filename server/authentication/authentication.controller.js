@@ -11,7 +11,7 @@ var validateJwt = expressJwt({ secret: config.secret});
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
-exports.isAuthenticated = function() {
+function isAuthenticated () {
   return compose()
     .use(function(req, res, next) {
       if(req.query && req.query.hasOwnProperty('access_token')) {
@@ -30,7 +30,21 @@ exports.isAuthenticated = function() {
     });
 }
 
-exports.setup = function (User) {
+function isAdmin () {
+    
+    return compose()
+          .use(isAuthenticated())
+          .use(function meetsRequirements(req, res, next) {
+              if (req.user.role == 'admin') {
+                  next();
+              }
+              else {
+                  res.send(403);
+              }
+          });
+}
+
+function setup (User) {
   passport.use(new LocalStrategy({
       usernameField: 'email',
       passwordField: 'password'
@@ -53,7 +67,7 @@ exports.setup = function (User) {
   ));
 };
 
-exports.authenticate = function (req, res, next) {
+function authenticate (req, res, next) {
   passport.authenticate('local', function (err, user, info) {
     var error = err || info;
     if (error) return res.status(401).json(error);
@@ -67,3 +81,8 @@ exports.authenticate = function (req, res, next) {
 function signToken(id) {
   return jwt.sign({ _id: id }, config.secret, { expiresIn : 60*60*24 });
 }
+
+exports.isAuthenticated = isAuthenticated;
+exports.isAdmin = isAdmin;
+exports.setup = setup;
+exports.authenticate = authenticate;
