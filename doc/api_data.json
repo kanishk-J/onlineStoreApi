@@ -1045,45 +1045,6 @@
       ]
     },
     "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "name",
-            "description": "<p>user's name</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "email",
-            "description": "<p>user's email</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "status",
-            "description": "<p>user's status, if any</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "DOB",
-            "description": "<p>user's date of birth</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "role",
-            "description": "<p>user's role</p>"
-          }
-        ]
-      },
       "examples": [
         {
           "title": "Success-Response:",
@@ -1110,9 +1071,9 @@
             "description": "<p>Validation errors in user profile.</p>"
           }
         ],
-        "Error 403": [
+        "Error 401": [
           {
-            "group": "Error 403",
+            "group": "Error 401",
             "type": "Object",
             "optional": false,
             "field": "UnauthorizedError",

@@ -85,4 +85,44 @@ function signToken(id) {
 exports.isAuthenticated = isAuthenticated;
 exports.isAdmin = isAdmin;
 exports.setup = setup;
+
+/**
+ * @api {post} /authentication Authentication
+ * @apiVersion 0.0.1
+ * @apiName Authentication
+ * @apiDescription This api takes email and password as input and retrieves a new access token for user. This access token will further be used to interact with different APIs.
+ * @apiGroup User
+ * @apiExample {curl} Example Usage:
+ *    curl -X POST http://localhost:4000/authentication
+ * 
+ * @apiParam (Body) {String} email User's email
+ * @apiParam (Body) {String} password User's password
+ * 
+ * @apiParam (Query String) {String} access-token Authentication token of user
+ * 
+ * @apiParamExample {json} Request-Sample:
+ *    {
+ *        "email": "kanishkjain071993@gmail.com",
+ *        "password": "kanishk"
+ *    }
+ * 
+ * @apiSuccessExample {String} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1OWZjYWQzZTE4MTI2MjIyYmNhODA5MjEiLCJpYXQiOjE1MDk3MzE2NDYsImV4cCI6MTUwOTgxODA0Nn0.TJSxLJ_hwVvs70Q00bmKtlEFwlaU6OdTZ9ClAK_h33o"
+ *     }
+ * @apiError (Error 500) {Object} TechnicalError Technical errors if any.
+ * @apiErrorExample {json} Error-Response:   
+ * @apiError (Error 401) {Object} UnauthorizedError Unauthorized user
+ * 
+ * @apiErrorExample {json} Error-Response:
+ *    HTTP/1.1 401 Server Error
+ *    {
+ *        "hasError": 1,
+ *        "errorGroup": "UnauthorizedError",
+ *        "errorName": "UnauthorizedError",
+ *        "message": "No authorization token was found"
+ *    }
+ * 
+ */
 exports.authenticate = authenticate;

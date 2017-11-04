@@ -83,11 +83,6 @@ exports.index = function(req, res) {
  *        "email": "kanishkjain071993@gmail.com",
  *        "password": "kanishk"
  *    }
- * @apiSuccess {String} name user's name
- * @apiSuccess {String} email user's email
- * @apiSuccess {String} status user's status, if any
- * @apiSuccess {String} DOB user's date of birth
- * @apiSuccess {String} role user's role
  * @apiSuccessExample {String} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
@@ -107,7 +102,7 @@ exports.index = function(req, res) {
  *     ],
  *     "message": "User validation failed"
  * }   
- * @apiError (Error 403) {Object} UnauthorizedError Unauthorized user
+ * @apiError (Error 401) {Object} UnauthorizedError Unauthorized user
  * 
  * @apiErrorExample {json} Error-Response:
  *    HTTP/1.1 401 Server Error
