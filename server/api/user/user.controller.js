@@ -204,7 +204,7 @@ exports.addAdminUser = function (req, res) {
  * @apiName Find User
  * @apiGroup User
  * @apiExample {curl} Example Usage:
- *    curl -X POST http://localhost:4000/api/users/59fc9d144116f409f4e4ef42
+ *    curl -X GET http://localhost:4000/api/users/59fc9d144116f409f4e4ef42
  * 
  * @apiParam (Url Param) {String} id string id of user
  * 
@@ -308,7 +308,7 @@ exports.destroy = function(req, res) {
  * @apiName Get User profile
  * @apiGroup User
  * @apiExample {curl} Example Usage:
- *    curl -X POST http://localhost:4000/api/users/me?access-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1OWZjYWQzZTE4MTI2MjIyYmNhODA5MjEiLCJpYXQiOjE1MDk3MzE2NDYsImV4cCI6MTUwOTgxODA0Nn0.TJSxLJ_hwVvs70Q00bmKtlEFwlaU6OdTZ9ClAK_h33o
+ *    curl -X GET http://localhost:4000/api/users/me?access-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1OWZjYWQzZTE4MTI2MjIyYmNhODA5MjEiLCJpYXQiOjE1MDk3MzE2NDYsImV4cCI6MTUwOTgxODA0Nn0.TJSxLJ_hwVvs70Q00bmKtlEFwlaU6OdTZ9ClAK_h33o
  * 
  * 
  * @apiParam (Query String) {String} access-token Authentication token of user

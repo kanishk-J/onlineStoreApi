@@ -66,7 +66,7 @@ exports.index = function (req, res) {
  * @apiName Find Product By Id
  * @apiGroup Product
  * @apiExample {curl} Example Usage:
- *    curl -X POST http://localhost:4000/api/products/findById/59fc9d144116f409f4e4ef42
+ *    curl -X GET http://localhost:4000/api/products/findById/59fc9d144116f409f4e4ef42
  * 
  * @apiParam (Url Param) {String} id string id of product
  * 
@@ -127,7 +127,7 @@ exports.findById = function (req, res) {
  * @apiName Find Product By Name
  * @apiGroup Product
  * @apiExample {curl} Example Usage:
- *    curl -X POST http://localhost:4000/api/products/findByName/Motorola Moto G5 plus
+ *    curl -X GET http://localhost:4000/api/products/findByName/Motorola Moto G5 plus
  * 
  * @apiParam (Url Param) {String} name name of product
  * 
