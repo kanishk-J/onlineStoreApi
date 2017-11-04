@@ -141,161 +141,6 @@ define({ "api": [
     "groupTitle": "Product"
   },
   {
-    "type": "post",
-    "url": "/api/products/:id",
-    "title": "UpdateProduct",
-    "description": "<p>update a product (User must be authenticated and have admin privileges)</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "access-token",
-            "description": "<p>Authentication token of user</p>"
-          }
-        ],
-        "Body": [
-          {
-            "group": "Body",
-            "type": "String",
-            "optional": false,
-            "field": "name",
-            "description": "<p>product name</p>"
-          },
-          {
-            "group": "Body",
-            "type": "String",
-            "optional": false,
-            "field": "description",
-            "description": "<p>description of product</p>"
-          },
-          {
-            "group": "Body",
-            "type": "String",
-            "optional": false,
-            "field": "productCode",
-            "description": "<p>product code</p>"
-          },
-          {
-            "group": "Body",
-            "type": "String",
-            "optional": false,
-            "field": "images",
-            "description": "<p>product images</p>"
-          },
-          {
-            "group": "Body",
-            "type": "String",
-            "optional": false,
-            "field": "price",
-            "description": "<p>Product selling price</p>"
-          },
-          {
-            "group": "Body",
-            "type": "String",
-            "optional": false,
-            "field": "qtyInStock",
-            "description": "<p>Product in stock quantity</p>"
-          }
-        ],
-        "Query String": [
-          {
-            "group": "Query String",
-            "type": "String",
-            "optional": false,
-            "field": "access-token",
-            "description": "<p>Authentication token of user</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Request-Sample:",
-          "content": "{\n    \"_id\": \"59fc8d8d1db0304174ef63b9\",\n    \"name\" : \"Motorola Moto G.5 plus\",\n    \"description\": \"Mmotorola mobile phone\",\n    \"images\": [],\n    \"productCode\": 1101,\n    \"price\": 13999,\n    \"qtyInStock\": 12\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.1",
-    "name": "Add_admin_user",
-    "group": "Product",
-    "examples": [
-      {
-        "title": "Example Usage:",
-        "content": "curl -X POST http://localhost:4000/api/products/59fc8d8d1db0304174ef63b9",
-        "type": "curl"
-      }
-    ],
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"_id\": \"59fc8d8d1db0304174ef63b9\", \n   \"name\" : \"Motorola Moto G.5 plus\",\n   \"description\": \"Mmotorola mobile phone\",\n   \"images\": [],\n   \"productCode\": 1101,\n   \"price\": 13999,\n   \"qtyInStock\": 12\n}",
-          "type": "String"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "Error 500": [
-          {
-            "group": "Error 500",
-            "type": "Object",
-            "optional": false,
-            "field": "TechnicalError",
-            "description": "<p>Technical errors if any.</p>"
-          },
-          {
-            "group": "Error 500",
-            "type": "Object",
-            "optional": false,
-            "field": "ValidationError",
-            "description": "<p>Validation errors in user profile.</p>"
-          }
-        ],
-        "Error 404": [
-          {
-            "group": "Error 404",
-            "type": "Object",
-            "optional": false,
-            "field": "ProductNotFoundError",
-            "description": "<p>product does not exists in database.</p>"
-          }
-        ],
-        "Error 401": [
-          {
-            "group": "Error 401",
-            "type": "Object",
-            "optional": false,
-            "field": "UnauthorizedError",
-            "description": "<p>Unauthorized user</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Error-Response 500:",
-          "content": "HTTP/1.1 500 Server Error\n{\n    \"hasError\": 1,\n    \"errorGroup\": \"ValidationError\",\n    \"errorName\": \"ValidationError\",\n    \"validations\": [\n       \"email\": \"email is required\",\n       \"name\": \"name is required\"\n    ],\n    \"message\": \"User validation failed\"\n}",
-          "type": "json"
-        },
-        {
-          "title": "Error-Response 404:",
-          "content": "HTTP/1.1 404 Not Found\n{\n    \"hasError\": 1,\n    \"errorGroup\": \"ProductNotFoundError\",\n    \"errorName\": \"ProductNotFoundError\",\n    \"message\": \"product not found\"\n}",
-          "type": "json"
-        },
-        {
-          "title": "Error-Response 401:",
-          "content": "HTTP/1.1 401 Unauthorized\n{\n    \"hasError\": 1,\n    \"errorGroup\": \"UnauthorizedError\",\n    \"errorName\": \"UnauthorizedError\",\n    \"message\": \"No authorization token was found\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "server/api/product/product.controller.js",
-    "groupTitle": "Product"
-  },
-  {
     "type": "delete",
     "url": "/api/products/:id",
     "title": "DeleteProduct",
@@ -838,6 +683,161 @@ define({ "api": [
         ]
       },
       "examples": [
+        {
+          "title": "Error-Response 401:",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n    \"hasError\": 1,\n    \"errorGroup\": \"UnauthorizedError\",\n    \"errorName\": \"UnauthorizedError\",\n    \"message\": \"No authorization token was found\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "server/api/product/product.controller.js",
+    "groupTitle": "Product"
+  },
+  {
+    "type": "post",
+    "url": "/api/products/:id",
+    "title": "UpdateProduct",
+    "description": "<p>update a product (User must be authenticated and have admin privileges)</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "access-token",
+            "description": "<p>Authentication token of user</p>"
+          }
+        ],
+        "Body": [
+          {
+            "group": "Body",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>product name</p>"
+          },
+          {
+            "group": "Body",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>description of product</p>"
+          },
+          {
+            "group": "Body",
+            "type": "String",
+            "optional": false,
+            "field": "productCode",
+            "description": "<p>product code</p>"
+          },
+          {
+            "group": "Body",
+            "type": "String",
+            "optional": false,
+            "field": "images",
+            "description": "<p>product images</p>"
+          },
+          {
+            "group": "Body",
+            "type": "String",
+            "optional": false,
+            "field": "price",
+            "description": "<p>Product selling price</p>"
+          },
+          {
+            "group": "Body",
+            "type": "String",
+            "optional": false,
+            "field": "qtyInStock",
+            "description": "<p>Product in stock quantity</p>"
+          }
+        ],
+        "Query String": [
+          {
+            "group": "Query String",
+            "type": "String",
+            "optional": false,
+            "field": "access-token",
+            "description": "<p>Authentication token of user</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Sample:",
+          "content": "{\n    \"_id\": \"59fc8d8d1db0304174ef63b9\",\n    \"name\" : \"Motorola Moto G.5 plus\",\n    \"description\": \"Mmotorola mobile phone\",\n    \"images\": [],\n    \"productCode\": 1101,\n    \"price\": 13999,\n    \"qtyInStock\": 12\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.1",
+    "name": "UpdateProduct",
+    "group": "Product",
+    "examples": [
+      {
+        "title": "Example Usage:",
+        "content": "curl -X POST http://localhost:4000/api/products/59fc8d8d1db0304174ef63b9",
+        "type": "curl"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"_id\": \"59fc8d8d1db0304174ef63b9\", \n   \"name\" : \"Motorola Moto G.5 plus\",\n   \"description\": \"Mmotorola mobile phone\",\n   \"images\": [],\n   \"productCode\": 1101,\n   \"price\": 13999,\n   \"qtyInStock\": 12\n}",
+          "type": "String"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 500": [
+          {
+            "group": "Error 500",
+            "type": "Object",
+            "optional": false,
+            "field": "TechnicalError",
+            "description": "<p>Technical errors if any.</p>"
+          },
+          {
+            "group": "Error 500",
+            "type": "Object",
+            "optional": false,
+            "field": "ValidationError",
+            "description": "<p>Validation errors in user profile.</p>"
+          }
+        ],
+        "Error 404": [
+          {
+            "group": "Error 404",
+            "type": "Object",
+            "optional": false,
+            "field": "ProductNotFoundError",
+            "description": "<p>product does not exists in database.</p>"
+          }
+        ],
+        "Error 401": [
+          {
+            "group": "Error 401",
+            "type": "Object",
+            "optional": false,
+            "field": "UnauthorizedError",
+            "description": "<p>Unauthorized user</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response 500:",
+          "content": "HTTP/1.1 500 Server Error\n{\n    \"hasError\": 1,\n    \"errorGroup\": \"ValidationError\",\n    \"errorName\": \"ValidationError\",\n    \"validations\": [\n       \"email\": \"email is required\",\n       \"name\": \"name is required\"\n    ],\n    \"message\": \"User validation failed\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error-Response 404:",
+          "content": "HTTP/1.1 404 Not Found\n{\n    \"hasError\": 1,\n    \"errorGroup\": \"ProductNotFoundError\",\n    \"errorName\": \"ProductNotFoundError\",\n    \"message\": \"product not found\"\n}",
+          "type": "json"
+        },
         {
           "title": "Error-Response 401:",
           "content": "HTTP/1.1 401 Unauthorized\n{\n    \"hasError\": 1,\n    \"errorGroup\": \"UnauthorizedError\",\n    \"errorName\": \"UnauthorizedError\",\n    \"message\": \"No authorization token was found\"\n}",
