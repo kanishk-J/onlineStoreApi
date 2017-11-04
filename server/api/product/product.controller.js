@@ -318,7 +318,7 @@ exports.create = function (req, res) {
  * @apiParam {String} access-token Authentication token of user
  * @apiVersion 0.0.1
  * @apiName Add admin user
- * @apiGroup User
+ * @apiGroup Product
  * @apiExample {curl} Example Usage:
  *    curl -X POST http://localhost:4000/api/products/59fc8d8d1db0304174ef63b9
  * 
