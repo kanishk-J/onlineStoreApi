@@ -75,14 +75,13 @@ exports.index = function(req, res) {
  * @apiParam (Body) {String} status User's status [optional]
  * @apiParam (Body) {String} DOB User's date of birth [optional]
  * 
- * @apiParam (Query String) {String} access-token Authentication token of user
- * 
  * @apiParamExample {json} Request-Sample:
  *    {
  *        "name" : "Kanishk Jain",
  *        "email": "kanishkjain071993@gmail.com",
  *        "password": "kanishk"
  *    }
+ * @apiSuccess {string} token User's newly created access token for aithentication.
  * @apiSuccessExample {String} Success-Response:
  *     HTTP/1.1 200 OK
  *     {

@@ -91,7 +91,7 @@ exports.setup = setup;
  * @apiVersion 0.0.1
  * @apiName Authentication
  * @apiDescription This api takes email and password as input and retrieves a new access token for user. This access token will further be used to interact with different APIs.
- * @apiGroup User
+ * @apiGroup Authentication
  * @apiExample {curl} Example Usage:
  *    curl -X POST http://localhost:4000/authentication
  * 
@@ -111,8 +111,7 @@ exports.setup = setup;
  *     {
  *        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1OWZjYWQzZTE4MTI2MjIyYmNhODA5MjEiLCJpYXQiOjE1MDk3MzE2NDYsImV4cCI6MTUwOTgxODA0Nn0.TJSxLJ_hwVvs70Q00bmKtlEFwlaU6OdTZ9ClAK_h33o"
  *     }
- * @apiError (Error 500) {Object} TechnicalError Technical errors if any.
- * @apiErrorExample {json} Error-Response:   
+ * @apiError (Error 500) {Object} TechnicalError Technical errors if any. 
  * @apiError (Error 401) {Object} UnauthorizedError Unauthorized user
  * 
  * @apiErrorExample {json} Error-Response:
